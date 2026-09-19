@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mind_Blogger | Student wellbeing intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div class="brand" aria-label="Mind_Blogger home">
+        <span class="mark">MB</span>
+        <span class="brand-word">Mind_Blogger</span>
+      </div>
+      <div class="nav"><span class="pill">LIVE DATASET</span><button id="theme" aria-label="Toggle theme">◐ Theme</button></div>
+    </header>
+    <section class="hero">
+      <div><span class="eyebrow">Student wellbeing / 2025 snapshot</span><h1>Make the invisible<br><i>measurable.</i></h1></div>
+      <p class="hero-copy">A clear view of how study habits, screen time, sleep, and stress shape student wellbeing. <strong>Explore the signal, then test a profile.</strong></p>
+    </section>
+    <section class="metrics" id="metrics"></section>
+    <section class="grid">
+      <article class="panel"><div class="panel-head"><div><span class="eyebrow">Distribution</span><h2>Where scores land</h2></div><span class="pill">n = all students</span></div><div class="chart" id="distribution"></div></article>
+      <article class="panel form-panel"><div class="panel-head"><div><span class="eyebrow">Individual forecast</span><h2>Read a profile</h2></div></div>
+        <form id="predict-form">
+          <label>Age<input name="age" type="number" min="10" max="100" value="21" required></label>
+          <label>Gender<select name="gender"><option>Female</option><option>Male</option></select></label>
+          <label>Academic level<select name="academic_level"><option>Undergraduate</option><option>Graduate</option><option>High School</option></select></label>
+          <label>Country<input name="country" value="India" required></label>
+          <label>Platform<select name="most_used_platform"><option>Instagram</option><option>YouTube</option><option>Facebook</option><option>LinkedIn</option><option>TikTok</option><option>Snapchat</option><option>Twitter</option><option>WhatsApp</option></select></label>
+          <label>Primary use<select name="purpose_of_use"><option>Education</option><option>Entertainment</option><option>Networking</option><option>News</option></select></label>
+          <label>Daily use (hours)<input name="avg_daily_usage_hours" type="number" step=".1" min="0" max="24" value="4" required></label>
+          <label>Daily unlocks<input name="daily_unlocks" type="number" min="0" value="120" required></label>
+          <label>Study hours<input name="study_hours" type="number" step=".1" min="0" max="24" value="5" required></label>
+          <label>Movement hours<input name="physical_activity_hours" type="number" step=".1" min="0" max="24" value="2" required></label>
+          <label>Sleep hours<input name="sleep_hours_per_night" type="number" step=".1" min="0" max="24" value="7" required></label>
+          <label>Stress<select name="stress_level"><option>Low</option><option selected>Medium</option><option>High</option><option>Very High</option></select></label>
+          <div class="full"><button class="submit" type="submit">Calculate wellbeing score →</button><div class="note">The model estimates a score from 0 to 10 using the profile above.</div></div>
+          <div class="result" id="result"><span class="eyebrow">Estimated score</span><b id="result-value">—</b><span class="note" id="result-note"></span></div>
+        </form>
+      </article>
+      <article class="panel"><div class="panel-head"><div><span class="eyebrow">Context</span><h2>Score by platform</h2></div></div><div class="rows" id="platforms"></div></article>
+      <article class="panel"><div class="panel-head"><div><span class="eyebrow">Relationship</span><h2>Stress and wellbeing</h2></div></div><div class="rows" id="stress"></div></article>
+    </section>
+    <footer><span>Mind_Blogger / mental health score</span><span>Built for thoughtful decisions</span></footer>
+  </main>
+  <script src="/static/script.js"></script>
+</body>
+</html>
